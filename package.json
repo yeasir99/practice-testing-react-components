@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint --ignore-path .gitignore .",
     "build": "webpack --config webpack.config.prod.js",
     "dev:build": "webpack --config webpack.config.dev.js",
     "dev": "webpack-dev-server --config webpack.config.dev.js"
@@ -21,6 +22,7 @@
   "homepage": "https://github.com/yeasir99/practice-react-testing#readme",
   "devDependencies": {
     "@babel/core": "^7.16.0",
+    "@babel/eslint-parser": "^7.16.3",
     "@babel/preset-env": "^7.16.4",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.5.1",
