@@ -7,12 +7,24 @@
     "ecmaVersion": 2021,
     "sourceType": "module"
   },
-  "extends": ["eslint:recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "prettier"
+  ],
   "rules": {
-    "strict": ["error", "never"]
+    "strict": ["error", "never"],
+    "react/react-in-jsx-scope": 0
+  },
+  "settings": {
+    "react": {
+      "version": "latest"
+    }
   },
   "env": {
     "browser": true,
     "node": true
-  }
+  },
+  "plugins": ["react", "jsx-a11y"]
 }

@@ -4,10 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server --open --config webpack.config.dev.js",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json|html|css|ts|tsx)\"",
+    "format": "npm run prettier -- --write",
     "lint": "eslint --ignore-path .gitignore .",
     "build": "webpack --config webpack.config.prod.js",
     "dev:build": "webpack --config webpack.config.dev.js",
-    "dev": "webpack-dev-server --config webpack.config.dev.js"
+    "validate": "npm run format && npm run lint && npm run build"
   },
   "repository": {
     "type": "git",
@@ -24,11 +27,17 @@
     "@babel/core": "^7.16.0",
     "@babel/eslint-parser": "^7.16.3",
     "@babel/preset-env": "^7.16.4",
+    "@babel/preset-react": "^7.16.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.2",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.5.1",
     "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.27.1",
     "html-webpack-plugin": "^5.5.0",
     "prettier": "^2.5.0",
+    "react-refresh": "^0.11.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.64.4",
     "webpack-bundle-analyzer": "^4.5.0",
@@ -37,6 +46,8 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "core-js": "^3.19.1"
+    "core-js": "^3.19.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
