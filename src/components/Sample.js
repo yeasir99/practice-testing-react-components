@@ -18,9 +18,9 @@ function Sample() {
   )
   return (
     <div>
-      <h1>{capitalizeString('hi there')}</h1>
-      <h1>{capitalizeString('are you there')}</h1>
-      <h1>{capitalizeString('no one is there')}</h1>
+      <h3>{capitalizeString('are you there')}</h3>
+      <h3>{capitalizeString('no one is there')}</h3>
+      <h3>{capitalizeString('no one  there')}</h3>
     </div>
   )
 }
