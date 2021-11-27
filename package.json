@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "jest",
     "start": "webpack-dev-server --open --config webpack.config.dev.js",
     "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json|html|css)\"",
     "format": "npm run prettier -- --write",
     "lint": "eslint --ignore-path .gitignore .",
     "build": "webpack --config webpack.config.prod.js",
     "dev:build": "webpack --config webpack.config.dev.js",
-    "validate": "npm run format && npm run lint && npm run build"
+    "validate": "npm run format && npm run lint && npm run test && npm run build"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,7 @@
     "eslint-plugin-react": "^7.27.1",
     "html-webpack-plugin": "^5.5.0",
     "husky": "^4.3.8",
+    "jest": "^27.3.1",
     "lint-staged": "^12.1.2",
     "prettier": "^2.5.0",
     "react-refresh": "^0.11.0",

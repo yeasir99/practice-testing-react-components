@@ -19,6 +19,7 @@ function Sample() {
   return (
     <div>
       <h3>{capitalizeString('are you there')}</h3>
+      <h3>{capitalizeString('you are not there')}</h3>
       <h3>{capitalizeString('no one is there')}</h3>
       <h3>{capitalizeString('no one  there')}</h3>
     </div>
