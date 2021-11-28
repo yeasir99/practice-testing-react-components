@@ -15,7 +15,8 @@
   ],
   "rules": {
     "strict": ["error", "never"],
-    "react/react-in-jsx-scope": 0
+    "react/react-in-jsx-scope": "off",
+    "no-console": "error"
   },
   "settings": {
     "react": {

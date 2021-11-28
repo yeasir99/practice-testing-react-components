@@ -16,6 +16,7 @@ function Sample() {
     uppercaseFirstCharOfArrStr,
     stringToArr,
   )
+
   return (
     <div>
       <h3>{capitalizeString('are you there')}</h3>

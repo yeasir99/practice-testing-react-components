@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test:watch": "jest --watch",
     "start": "webpack-dev-server --open --config webpack.config.dev.js",
     "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json|html|css)\"",
     "format": "npm run prettier -- --write",
@@ -30,6 +31,8 @@
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-react": "^7.16.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.2",
+    "@testing-library/jest-dom": "^5.15.1",
+    "@testing-library/react": "^12.1.2",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.5.1",
     "eslint": "^8.3.0",
