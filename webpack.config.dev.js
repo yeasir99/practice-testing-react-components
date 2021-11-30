@@ -1,7 +1,7 @@
 const { merge } = require('webpack-merge')
 
 const baseConfig = require('./webpack.config.base')
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
+// const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 
 module.exports = merge(baseConfig, {
   mode: 'development',
@@ -23,7 +23,8 @@ module.exports = merge(baseConfig, {
   },
   devServer: {
     port: 3000,
+    hot: true,
   },
   devtool: 'source-map',
-  plugins: [new ReactRefreshWebpackPlugin()].filter(Boolean),
+  // plugins: [new ReactRefreshWebpackPlugin()].filter(Boolean),
 })

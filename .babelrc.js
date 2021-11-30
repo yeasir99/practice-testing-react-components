@@ -18,5 +18,5 @@ module.exports = {
       },
     ],
   ],
-  plugins: [['react-refresh/babel', { skipEnvCheck: isTest && true }]],
+  // plugins: [['react-refresh/babel', { skipEnvCheck: isTest && true }]],
 }
