@@ -1,4 +1,5 @@
 import Counter from './components/Counter'
+import Editor from './components/Editor'
 import Sample from './components/Sample'
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div>
       <Sample />
       <Counter />
+      <Editor />
     </div>
   )
 }
