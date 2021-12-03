@@ -1,7 +1,8 @@
 import React from 'react'
 import { savePost } from './api'
+import PropTypes from 'prop-types'
 
-function Editor() {
+function Editor({ user }) {
   const [state, setState] = React.useState(false)
 
   const handleSubmit = e => {
@@ -13,6 +14,7 @@ function Editor() {
       title: title.value,
       content: content.value,
       tags: tags.value.split(',').map(t => t.trim()),
+      userId: user.userId,
     })
   }
 
@@ -31,4 +33,9 @@ function Editor() {
   )
 }
 
+Editor.propTypes = {
+  user: PropTypes.shape({
+    userId: PropTypes.string,
+  }),
+}
 export default Editor

@@ -4,23 +4,36 @@ import { savePost as mockSavePost } from './../components/api'
 
 jest.mock('./../components/api')
 
+afterEach(() => {
+  jest.clearAllMocks()
+})
+
 test('render a form with a title, content, tags, and a submit button', () => {
   mockSavePost.mockResolvedValueOnce()
-  render(<Editor />)
-  screen.getByLabelText(/title/i).value = 'haskell'
 
-  screen.getByLabelText(/Content/i).value = 'its interesting'
+  const fakeUser = { userId: 'user-1' }
 
-  screen.getByLabelText(/tags/i).value = 'elm, purescript'
+  render(<Editor user={fakeUser} />)
+
+  const fakePost = {
+    title: 'haskell',
+    content: 'its interesting',
+    tags: ['elm', 'purescript'],
+  }
+
+  screen.getByLabelText(/title/i).value = fakePost.title
+
+  screen.getByLabelText(/content/i).value = fakePost.content
+
+  screen.getByLabelText(/tags/i).value = fakePost.tags.join(',')
   const submitBtn = screen.getByText(/submit/i)
 
   fireEvent.click(submitBtn)
   expect(submitBtn).toBeDisabled()
 
   expect(mockSavePost).toHaveBeenCalledWith({
-    title: 'haskell',
-    content: 'its interesting',
-    tags: ['elm', 'purescript'],
+    ...fakePost,
+    ...fakeUser,
   })
   expect(mockSavePost).toHaveBeenCalledTimes(1)
 })
