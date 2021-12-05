@@ -38,20 +38,20 @@ const renderAndFillForm = () => {
   screen.getByLabelText(/title/i).value = fakePost.title
   screen.getByLabelText(/content/i).value = fakePost.content
   screen.getByLabelText(/tags/i).value = fakePost.tags.join(',')
+  const submitBtn = screen.getByText(/submit/i)
+
+  fireEvent.click(submitBtn)
+  expect(submitBtn).toBeDisabled()
   return {
     fakeUser,
     fakePost,
+    submitBtn,
   }
 }
 
 test('render a form with a title, content, tags, and a submit button', async () => {
   mockSavePost.mockResolvedValueOnce()
   const { fakePost, fakeUser } = renderAndFillForm()
-
-  const submitBtn = screen.getByText(/submit/i)
-
-  fireEvent.click(submitBtn)
-  expect(submitBtn).toBeDisabled()
 
   expect(mockSavePost).toHaveBeenCalledWith({
     ...fakePost,
@@ -65,12 +65,7 @@ test('render a form with a title, content, tags, and a submit button', async () 
 
 test('render an error message from server', async () => {
   mockSavePost.mockRejectedValueOnce({ data: { error: 'test error' } })
-  renderAndFillForm()
-
-  const submitBtn = screen.getByText(/submit/i)
-
-  fireEvent.click(submitBtn)
-  expect(submitBtn).toBeDisabled()
+  const { submitBtn } = renderAndFillForm()
 
   const postError = await screen.findByRole('alert')
 
